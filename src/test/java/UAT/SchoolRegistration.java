@@ -268,9 +268,7 @@ public class SchoolRegistration {
 					        eButton.click();
 					        driver.findElement(By.xpath("//button[@id='02']")).click();
 		                } 
-	
-
-}
+         }
 }
 				
 
