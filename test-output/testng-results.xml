@@ -2,29 +2,39 @@
 <testng-results ignored="0" total="2" passed="1" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-07-19T17:10:52 IST" name="Default suite" finished-at="2024-07-19T17:12:12 IST" duration-ms="79610">
+  <suite started-at="2024-07-27T11:45:03 IST" name="Default suite" finished-at="2024-07-27T11:46:45 IST" duration-ms="101466">
     <groups>
     </groups>
-    <test started-at="2024-07-19T17:10:52 IST" name="Default test" finished-at="2024-07-19T17:12:12 IST" duration-ms="79610">
+    <test started-at="2024-07-27T11:45:03 IST" name="Default test" finished-at="2024-07-27T11:46:45 IST" duration-ms="101466">
       <class name="UAT.SchoolRegistration">
-        <test-method is-config="true" signature="urlsetup()[pri:0, instance:UAT.SchoolRegistration@34123d65]" started-at="2024-07-19T17:10:52 IST" name="urlsetup" finished-at="2024-07-19T17:11:04 IST" duration-ms="11153" status="PASS">
+        <test-method is-config="true" signature="urlsetup()[pri:0, instance:UAT.SchoolRegistration@34123d65]" started-at="2024-07-27T11:45:03 IST" name="urlsetup" finished-at="2024-07-27T11:45:14 IST" duration-ms="11369" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- urlsetup -->
-        <test-method signature="createschoolform()[pri:0, instance:UAT.SchoolRegistration@34123d65]" started-at="2024-07-19T17:11:04 IST" name="createschoolform" finished-at="2024-07-19T17:11:32 IST" duration-ms="28754" status="PASS">
+        <test-method signature="createschoolform()[pri:0, instance:UAT.SchoolRegistration@34123d65]" started-at="2024-07-27T11:45:15 IST" name="createschoolform" finished-at="2024-07-27T11:45:38 IST" duration-ms="23867" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- createschoolform -->
-        <test-method signature="test()[pri:0, instance:UAT.SchoolRegistration@34123d65]" started-at="2024-07-19T17:11:32 IST" name="test" finished-at="2024-07-19T17:12:12 IST" duration-ms="39652" status="FAIL">
+        <test-method signature="test()[pri:0, instance:UAT.SchoolRegistration@34123d65]" started-at="2024-07-27T11:45:38 IST" name="test" finished-at="2024-07-27T11:46:45 IST" duration-ms="66161" status="FAIL">
           <exception class="org.openqa.selenium.TimeoutException">
             <message>
-              <![CDATA[Expected condition failed: waiting for element to be clickable: By.xpath: //*[@id="sub_city_"] (tried for 20 second(s) with 500 milliseconds interval)]]>
+              <![CDATA[Expected condition failed: waiting for element to be clickable: By.xpath: //*[@id="sub_city_"] (tried for 20 second(s) with 500 milliseconds interval)
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '22.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.185, chrome: {chromedriverVersion: 126.0.6478.182 (5b5d8292ddf..., userDataDir: C:\Users\RESBEE~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:58086}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:58086/devtoo..., se:cdpVersion: 126.0.6478.185, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 2b27b4192e7d6fbb26a650fd6ff44b81]]>
             </message>
             <full-stacktrace>
               <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: By.xpath: //*[@id="sub_city_"] (tried for 20 second(s) with 500 milliseconds interval)
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '22.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.185, chrome: {chromedriverVersion: 126.0.6478.182 (5b5d8292ddf..., userDataDir: C:\Users\RESBEE~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:58086}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:58086/devtoo..., se:cdpVersion: 126.0.6478.185, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 2b27b4192e7d6fbb26a650fd6ff44b81
 at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
 at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
-at UAT.SchoolRegistration.test(SchoolRegistration.java:145)
+at UAT.SchoolRegistration.test(SchoolRegistration.java:150)
 at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
@@ -51,35 +61,6 @@ at org.testng.TestNG.run(TestNG.java:1031)
 at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-Caused by: org.openqa.selenium.NoSuchWindowException: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=126.0.6478.128)
-Build info: version: '4.22.0', revision: 'c5f3146703*'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '22.0.2'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [cd2d2bb1085fefefa571f01df62bf72b, findElement {value=//*[@id="sub_city_"], using=xpath}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.128, chrome: {chromedriverVersion: 126.0.6478.182 (5b5d8292ddf..., userDataDir: C:\Users\RESBEE~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:60176}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:60176/devtoo..., se:cdpVersion: 126.0.6478.128, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: cd2d2bb1085fefefa571f01df62bf72b
-at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
-at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
-at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
-at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
-at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
-at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:518)
-at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
-at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:349)
-at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:194)
-at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:190)
-at org.openqa.selenium.support.ui.ExpectedConditions$22.apply(ExpectedConditions.java:627)
-at org.openqa.selenium.support.ui.ExpectedConditions$22.apply(ExpectedConditions.java:624)
-at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:203)
-... 27 more
 ]]>
             </full-stacktrace>
           </exception> <!-- org.openqa.selenium.TimeoutException -->

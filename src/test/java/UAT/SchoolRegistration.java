@@ -9,6 +9,7 @@ import java.time.Duration;
 import java.util.concurrent.TimeoutException;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -37,7 +38,7 @@ public class SchoolRegistration {
 	
 	@Test
 	public void createschoolform() throws InterruptedException {
-		driver.findElement(By.xpath("//*[@id=\"Navbar-counting\"]/li[8]")).click();
+		driver.findElement(By.xpath("//a[normalize-space()='Login']")).click();
 		Thread.sleep(2000);
 		driver.findElement(By.id("email")).sendKeys("admin@tria.plc");
 		driver.findElement(By.id("SubmitBtn")).click();
@@ -45,8 +46,11 @@ public class SchoolRegistration {
 		driver.findElement(By.id("password")).sendKeys("school@dmin");	
 		driver.findElement(By.id("continueBtn")).click();
 		Thread.sleep(2000);
-		driver.get("https://aaeb-school.account.uat.ethiocheno.com/manage/organization");
-	    driver.findElement(By.xpath("//span[normalize-space()='Create School']")).click();
+		WebElement school=driver.findElement(By.xpath("//span[normalize-space()='Schools']"));
+		JavascriptExecutor ex= (JavascriptExecutor) driver;
+		ex.executeScript("arguments[0].click();", school);
+		WebElement addschool=driver.findElement(By.xpath("//span[normalize-space()='Add New School']"));
+		ex.executeScript("arguments[0].click();", addschool);
 	   	
 	}
 	
@@ -109,6 +113,7 @@ public class SchoolRegistration {
 		        Robot r= new Robot();
 		        for(int i=0;i<15;i++)
 		        {
+		        	Thread.sleep(2000);
 		        	r.keyPress(KeyEvent.VK_BACK_SPACE);
 		        	r.keyRelease(KeyEvent.VK_BACK_SPACE);
 		        }
@@ -209,70 +214,68 @@ public class SchoolRegistration {
      	}
 	}
 	//Datepicker
-				public static void findAndClickYear(WebDriver driver, String targetyear ) throws AWTException, InterruptedException {
-					String sidebutton = "//button[@id='btnmonthprev']//*[name()='svg']";
-					String yearbutton = "//button[normalize-space()=" +targetyear+ "]"; //button[normalize-space()='2016']
-					WebDriverWait w= new WebDriverWait(driver,Duration.ofSeconds(1));
-					{
-					while (true) {
-						   try {
-							   
-							   WebElement yearsbutton=w.until(ExpectedConditions.elementToBeClickable(By.xpath(yearbutton)));
-							   yearsbutton.click();
-							   System.out.println("clicked on the year:" + targetyear);
-							   break;
-						   }
-						   catch(Exception e)
-						   {
-							   WebElement yearSlider = driver.findElement(By.xpath(sidebutton));
-				                yearSlider.click();
-				                System.out.println("Clicked side button to navigate to the year");
-						   }
-					}
-					}
-					 WebDriverWait wa = new WebDriverWait(driver, Duration.ofSeconds(5));
-					    try {
-					    	WebElement janButton = wa.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[normalize-space()='Jan']")));
-					    	janButton.click();						        
-					        driver.findElement(By.xpath("//button[@id='06']")).click();
-					    } 
-					    catch (Exception e) {
-					    	Thread.sleep(2000);
-					    	driver.findElement(By.id("year_of_establishment_"));
-			                } 
-					    
-					    try {
-					    	WebElement switchButton = wa.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='calendar-type-switcher']")));
-		                    switchButton.click();
-		                    System.out.println("Clicked Ethiopian calendar button.");
-		                    WebDriverWait w1= new WebDriverWait(driver,Duration.ofSeconds(1));
-							{
-		                    while (true) {
-								   try {
-									   driver.findElement(By.xpath("//span[@id='activeyear']")).click();
-									   WebElement yearsbutton=w1.until(ExpectedConditions.elementToBeClickable(By.xpath(yearbutton)));
-									   yearsbutton.click();
-									   System.out.println("clicked on the year:" + targetyear);
-									   break;
-								   }
-								   catch(Exception e)
-								   {
-									   WebElement yearSlider = driver.findElement(By.xpath(sidebutton));
-						                yearSlider.click();
-						                System.out.println("Clicked side button to navigate to the year");
-								   }
-							     }
-					           }
-				          }catch (Exception e) {
-					    	WebElement eButton = wa.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[contains(text(),'መስከረም')]")));
-					        eButton.click();
-					        driver.findElement(By.xpath("//button[@id='02']")).click();
-		                } 
-         }
-}
+	public void findAndClickYear(WebDriver driver2, String targetyear) throws InterruptedException {
+		
+		String sidebutton="//button[@id='btnmonthprev']//*[name()='svg']";
+		String yearbutton="//button[normalize-space()=" +targetyear+ "]";
+		
+		WebDriverWait w=new WebDriverWait(driver,Duration.ofSeconds(10));
+		while(true)
+		{
+			try {
+			WebElement yearsbutton=w.until(ExpectedConditions.elementToBeClickable(By.xpath(yearbutton)));
+			yearsbutton.click();
+			System.out.println("clicked on the year:" + targetyear);
+			  break;
 				
-
-
-
-
-
+			}
+			catch(Exception e) {
+				WebElement yearslider=driver.findElement(By.xpath(sidebutton));
+				yearslider.click();
+				System.out.println("Clicked side button to navigate to the year");
+			}
+		}
+		
+		boolean gregorianCalendarSuccess = false;
+		try {
+		WebElement Janbutton=w.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[normalize-space()='Jan']")));
+		Janbutton.click();
+		driver.findElement(By.xpath("//button[@id='06']")).click();
+     	gregorianCalendarSuccess=true;
+		}
+		catch(Exception e)
+		{
+			System.out.println("The gregorian calnder failed to click trying the ethopian calender to click");	 
+		}                                                    
+		 if (!gregorianCalendarSuccess) {
+		while(true)
+		{
+			try {
+				driver.findElement(By.xpath("//span[@id='activeyear']")).click();
+				   WebElement yearsbutton=w.until(ExpectedConditions.elementToBeClickable(By.xpath(yearbutton)));
+				   yearsbutton.click();
+				   System.out.println("clicked on the year:" + targetyear);
+				    break;
+			}
+			catch(Exception e) {
+				WebElement yearslider=driver.findElement(By.xpath(sidebutton));
+				yearslider.click();
+				 System.out.println("Clicked side button to navigate to the year"); 			    
+			}
+		}
+		
+			boolean ethiopianCalendarSuccess = false;
+			try {
+				WebElement eButton = w.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[contains(text(),'መስከረም')]")));
+		        eButton.click();
+		        driver.findElement(By.xpath("//button[@id='02']")).click();
+		        System.out.println("Ethiopian calender year has been selected");
+		        ethiopianCalendarSuccess=true;
+			}catch(Exception e)
+			{
+				System.out.println("Failed to click the year");
+			}
+				
+		}
+		}
+}			                                                        
